@@ -1,3 +1,5 @@
+@let data$ = data();
+
 <div class="apod-container">
   <div class="page-header">
     <h2>Astronomy Picture of the Day</h2>
@@ -5,21 +7,41 @@
       Discover the cosmos! Each day a different image or photograph of our fascinating universe is
       featured, along with a brief explanation written by a professional astronomer.
     </p>
+    <!-- <div>
+      <mat-label>Date</mat-label>
+      <input type="date" [(ngModel)]="date" (ngModelChange)="onDateChanged($event)" />
+    </div> -->
   </div>
 
-  <mat-card appearance="outlined" class="apod-card">
-    <div class="apod-image-placeholder">
-      <mat-icon>image</mat-icon>
-      <p>APOD image will appear here</p>
-    </div>
-    <mat-card-header>
-      <mat-card-title>Loading...</mat-card-title>
-      <mat-card-subtitle>Fetching today's picture</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p class="apod-explanation">
-        Connect to the NASA APOD API to display the daily astronomy picture and its description.
-      </p>
-    </mat-card-content>
-  </mat-card>
+  @if (isLoading()) {
+    <mat-card appearance="outlined" class="apod-card">
+      <div class="apod-image-placeholder">
+        <mat-icon>image</mat-icon>
+        <p>APOD image will appear here</p>
+      </div>
+      <mat-card-header>
+        <mat-card-title>Loading...</mat-card-title>
+        <mat-card-subtitle>Fetching today's picture</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="apod-explanation">
+          Connect to the NASA APOD API to display the daily astronomy picture and its description.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  }
+  @if (data$ && !isLoading()) {
+    <mat-card appearance="outlined" class="apod-card">
+      <img [src]="data$.url" alt="Astronomy Picture of the Day" class="apod-image" />
+      <mat-card-header>
+        <mat-card-title>{{ data$.title }}</mat-card-title>
+        <mat-card-subtitle>{{ data$.date }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="apod-explanation">
+          {{ data$.explanation }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  }
 </div>

@@ -1,4 +1,10 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .feature-card {
+  height: 100%;
   transition: box-shadow 0.2s ease;
 
   &:hover {
@@ -20,5 +26,9 @@
   mat-card-content p {
     color: var(--mat-sys-on-surface-variant);
     line-height: 1.5;
+  }
+
+  mat-card-actions {
+    margin-top: auto;
   }
 }
