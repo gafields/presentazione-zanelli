@@ -1,0 +1,23 @@
+{
+  "name": "node-starter",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start-ts": "tsx src/index.ts",
+    "start-ts2": "tsx src/index2.ts",
+    "start-js": "node js/index.js",
+    "start-js2": "node js/index2.js",
+    "dev": "tsx --watch src/index.ts",
+    "test-ts": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "test-js": "node --test js/math.test.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "tsx": "^4.0.0",
+    "typescript": "^5.3.0"
+  }
+}

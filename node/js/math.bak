@@ -1,0 +1,31 @@
+
+// export function divisione(a, b, inverti = false) {
+//   if (b === 0 || (a === 0 && inverti)) return Number.NaN;
+
+//   if (inverti) {
+//     return b / a;
+//   }
+
+//   return a / b;
+// }
+
+// const areNumbers = typeof a === "number" && typeof b === "number";
+//   if (!areNumbers) {
+//     throw new Error("Tutti gli elementi devono essere numeri");
+//    }
+
+
+// test('deve dividere correttamente due numeri', () => {
+//   const risultato = divisione(9, 3);
+//   assert.strictEqual(risultato, 3);
+// });
+
+// test('deve dividere correttamente due numeri invertendo ordine', () => {
+//   const risultato = divisione(4, 2, true);
+//   assert.strictEqual(risultato, 0.5);
+// });
+
+// test('deve tornare nan', () => {
+//   const risultato = divisione(4, 0);
+//   assert.equal(risultato, Number.NaN);
+// });

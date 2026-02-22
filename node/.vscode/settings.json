@@ -1,0 +1,10 @@
+{
+  "javascript.suggest.enabled": false,
+  "javascript.validate.enable": false,
+  "typescript.suggest.enabled": false,
+  "typescript.validate.enable": true,
+  "github.copilot.enable": {
+    "*": true,
+    "javascript": true
+  }
+}
