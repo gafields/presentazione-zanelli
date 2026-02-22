@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  gap: 8px;
+
+  .app-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+
+  a {
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+.active-link {
+  background-color: color-mix(in srgb, var(--mat-sys-on-primary) 12%, transparent);
+  border-radius: 8px;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}

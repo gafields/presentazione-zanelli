@@ -1,0 +1,63 @@
+.apod-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.page-header {
+  h2 {
+    font: var(--mat-sys-headline-medium);
+    color: var(--mat-sys-on-surface);
+    margin: 0 0 8px;
+  }
+
+  .page-description {
+    font: var(--mat-sys-body-large);
+    color: var(--mat-sys-on-surface-variant);
+    margin: 0;
+    max-width: 700px;
+  }
+}
+
+.apod-card {
+  overflow: hidden;
+
+  .apod-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background: color-mix(in srgb, var(--mat-sys-primary) 5%, transparent);
+    color: var(--mat-sys-on-surface-variant);
+
+    mat-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      opacity: 0.5;
+    }
+
+    p {
+      margin-top: 12px;
+      font: var(--mat-sys-body-medium);
+    }
+  }
+
+  .apod-explanation {
+    color: var(--mat-sys-on-surface-variant);
+    line-height: 1.6;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

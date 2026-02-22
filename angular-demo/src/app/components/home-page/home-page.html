@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <mat-icon>rocket_launch</mat-icon>
+  <span class="app-title">NASA Explorer</span>
+  <span class="spacer"></span>
+  <nav class="nav-links">
+    <a
+      mat-button
+      routerLink="/home"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
+    <a mat-button routerLink="/home/apod" routerLinkActive="active-link">
+      <mat-icon>photo_camera</mat-icon>
+      APOD
+    </a>
+    <a mat-button routerLink="/home/rover" routerLinkActive="active-link">
+      <mat-icon>explore</mat-icon>
+      Rover
+    </a>
+    <button mat-button (click)="toggleTheme()">
+      @if (theme() == 'dark') {
+        <mat-icon>light_mode</mat-icon>
+      } @else {
+        <mat-icon>dark_mode</mat-icon>
+      }
+    </button>
+  </nav>
+</mat-toolbar>
+
+<main class="content">
+  <router-outlet />
+</main>

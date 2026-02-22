@@ -1,0 +1,71 @@
+<div class="welcome-container">
+  <div class="hero">
+    <mat-icon class="hero-icon">public</mat-icon>
+    <h1>Welcome to NASA Explorer</h1>
+    <p class="subtitle">
+      Explore the wonders of space through NASA's open APIs. Discover the Astronomy Picture of the
+      Day and browse photos from Mars rovers.
+    </p>
+  </div>
+
+  <div class="cards">
+    <mat-card appearance="outlined" class="feature-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="card-icon">photo_camera</mat-icon>
+        <mat-card-title>Astronomy Picture of the Day</mat-card-title>
+        <mat-card-subtitle>Daily cosmic imagery curated by NASA</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Each day a different image or photograph of our universe is featured, along with a brief
+          explanation written by a professional astronomer.
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a mat-flat-button routerLink="/home/apod">
+          <mat-icon>arrow_forward</mat-icon>
+          Explore APOD
+        </a>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="feature-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="card-icon">explore</mat-icon>
+        <mat-card-title>Mars Rover Photos</mat-card-title>
+        <mat-card-subtitle>Images captured on the Martian surface</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Browse through thousands of photos taken by NASA's Mars rovers including Curiosity,
+          Opportunity, and Spirit.
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a mat-flat-button routerLink="/home/rover">
+          <mat-icon>arrow_forward</mat-icon>
+          Explore Rover
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- <div class="cards">
+    <app-card
+      icon="photo_camera"
+      cardTitle="Astronomy Picture of the Day"
+      cardSubtitle="Daily cosmic imagery curated by NASA"
+      cardText="Each day a different image or photograph of our universe is featured, along with a brief explanation written by a professional astronomer."
+      cardLink="/home/apod"
+      cardLinkName="Explore APOD"
+    ></app-card>
+    <app-card
+      icon="explore"
+      cardTitle="Mars Rover Photos"
+      cardSubtitle="Images captured on the Martian surface"
+      cardText="Browse through thousands of photos taken by NASA's Mars rovers including Curiosity, Opportunity, and Spirit."
+      cardLink="/home/rover"
+      cardLinkName="Explore Rover"
+    ></app-card>
+  </div> -->
+</div>

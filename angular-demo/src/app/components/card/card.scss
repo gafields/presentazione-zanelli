@@ -1,0 +1,24 @@
+.feature-card {
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--mat-sys-level3);
+  }
+
+  .card-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color: var(--mat-sys-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--mat-sys-primary) 12%, transparent);
+    border-radius: 12px;
+  }
+
+  mat-card-content p {
+    color: var(--mat-sys-on-surface-variant);
+    line-height: 1.5;
+  }
+}
