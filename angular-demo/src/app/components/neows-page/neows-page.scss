@@ -5,21 +5,6 @@
   animation: fadeIn 0.3s ease-in;
 }
 
-.page-header {
-  h2 {
-    font: var(--mat-sys-headline-medium);
-    color: var(--mat-sys-on-surface);
-    margin: 0 0 8px;
-  }
-
-  .page-description {
-    font: var(--mat-sys-body-large);
-    color: var(--mat-sys-on-surface-variant);
-    margin: 0;
-    max-width: 700px;
-  }
-}
-
 .loading-container {
   display: flex;
   flex-direction: column;

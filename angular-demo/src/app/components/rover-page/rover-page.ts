@@ -6,6 +6,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { API_KEY } from '../../constants';
 import { httpResource } from '@angular/common/http';
+import { PageHeader } from '../page-header/page-header';
 
 export type RoverResponse = any; // Define the type based on the actual API response structure
 
@@ -17,6 +18,7 @@ export type RoverResponse = any; // Define the type based on the actual API resp
     MatIconModule,
     MatChipsModule,
     MatProgressSpinnerModule,
+    PageHeader,
   ],
   templateUrl: './rover-page.html',
   styleUrl: './rover-page.scss',

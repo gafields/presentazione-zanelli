@@ -4,6 +4,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { httpResource } from '@angular/common/http';
 import { API_KEY } from '../../constants';
 import { AsteroidInfo } from './asteroide/asteroide';
+import { PageHeader } from '../page-header/page-header';
 
 export type CloseApproachData = {
   close_approach_date: string;
@@ -31,7 +32,7 @@ export type NeoWsResponse = {
 
 @Component({
   selector: 'app-neows-page',
-  imports: [MatIconModule, MatProgressSpinnerModule, AsteroidInfo],
+  imports: [MatIconModule, MatProgressSpinnerModule, AsteroidInfo, PageHeader],
   templateUrl: './neows-page.html',
   styleUrl: './neows-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

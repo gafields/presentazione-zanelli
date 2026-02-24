@@ -18,7 +18,7 @@
     <div class="asteroid-stats">
       <div class="stat-row">
         <mat-icon>straighten</mat-icon>
-        <span class="label">Diametro stimato</span>
+        <span class="label">Estimated diameter</span>
         <span class="value">
           ~{{
             formatDiameter(
@@ -31,19 +31,19 @@
       </div>
       <div class="stat-row">
         <mat-icon>speed</mat-icon>
-        <span class="label">Velocità</span>
+        <span class="label">Velocity</span>
         <span class="value"
           >{{ formatVelocity(approach.relative_velocity.kilometers_per_hour) }} km/h</span
         >
       </div>
       <div class="stat-row">
         <mat-icon>place</mat-icon>
-        <span class="label">Distanza dalla Terra</span>
+        <span class="label">Distance from Earth</span>
         <span class="value">{{ formatDistance(approach.miss_distance.kilometers) }} km</span>
       </div>
       <div class="stat-row">
         <mat-icon>brightness_5</mat-icon>
-        <span class="label">Distanza lunare</span>
+        <span class="label">Lunar distance</span>
         <span class="value">{{ formatLunar(approach.miss_distance.lunar) }} LD</span>
       </div>
     </div>
@@ -53,12 +53,12 @@
     @if (a.is_potentially_hazardous_asteroid) {
       <mat-chip class="hazard-chip" highlighted color="warn">
         <mat-icon matChipTrailingIcon>priority_high</mat-icon>
-        Potenzialmente pericoloso
+        Potentially hazardous
       </mat-chip>
     } @else {
       <mat-chip class="safe-chip">
         <mat-icon matChipTrailingIcon>check_circle</mat-icon>
-        Non pericoloso
+        Not hazardous
       </mat-chip>
     }
     <a mat-button [href]="a.nasa_jpl_url" target="_blank">

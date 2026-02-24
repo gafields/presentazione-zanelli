@@ -1,11 +1,8 @@
 <div class="neows-container">
-  <div class="page-header">
-    <h2>Near Earth Objects</h2>
-    <p class="page-description">
-      Tracking asteroids and comets that pass close to Earth today, provided by NASA's Near Earth
-      Object Web Service (NeoWs).
-    </p>
-  </div>
+  <app-page-header
+    title="Near Earth Objects"
+    description="Tracking asteroids and comets that pass close to Earth today, provided by NASA's Near Earth Object Web Service (NeoWs)."
+  />
 
   @if (isLoading()) {
     <div class="loading-container">

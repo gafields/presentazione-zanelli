@@ -7,6 +7,7 @@ import { httpResource } from '@angular/common/http';
 import { API_KEY } from '../../constants';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { PageHeader } from '../page-header/page-header';
 
 type ApodResponse = {
   date: string;
@@ -27,6 +28,7 @@ type ApodResponse = {
     MatProgressSpinnerModule,
     MatInputModule,
     FormsModule,
+    PageHeader,
   ],
   templateUrl: './apod-page.html',
   styleUrl: './apod-page.scss',

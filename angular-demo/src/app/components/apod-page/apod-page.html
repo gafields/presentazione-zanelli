@@ -1,15 +1,13 @@
 @let data$ = data();
 
 <div class="apod-container">
-  <div class="page-header">
-    <h2>Astronomy Picture of the Day</h2>
-    <p class="page-description">
-      Discover the cosmos! Each day a different image or photograph of our fascinating universe is
-      featured, along with a brief explanation written by a professional astronomer.
-    </p>
-    <div>
-      <input type="date" [(ngModel)]="date" (ngModelChange)="onDateChanged($event)" />
-    </div>
+  <app-page-header
+    title="Astronomy Picture of the Day"
+    description="Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer."
+  />
+
+  <div>
+    <input type="date" [(ngModel)]="date" (ngModelChange)="onDateChanged($event)" />
   </div>
 
   @if (isLoading()) {
