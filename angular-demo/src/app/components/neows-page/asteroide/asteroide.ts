@@ -6,13 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { NeoObject } from '../neows-page';
 
 @Component({
-  selector: 'app-asteroide',
+  selector: 'app-asteroid-info',
   imports: [MatCardModule, MatIconModule, MatChipsModule, MatButtonModule],
   templateUrl: './asteroide.html',
   styleUrl: './asteroide.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Asteroide {
+export class AsteroidInfo {
   public asteroid = input.required<NeoObject>();
 
   public formatDistance(km: string): string {

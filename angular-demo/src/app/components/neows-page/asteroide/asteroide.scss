@@ -1,6 +1,11 @@
 .asteroid-card {
   transition: box-shadow 0.2s ease;
 
+  // mat-card-subtitle {
+  //   font: var(--mat-sys-body-small);
+  //   color: lime;
+  // }
+
   &:hover {
     box-shadow: 0 4px 16px color-mix(in srgb, var(--mat-sys-primary) 20%, transparent);
   }
