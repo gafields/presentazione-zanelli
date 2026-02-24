@@ -1,0 +1,65 @@
+.asteroid-card {
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--mat-sys-primary) 20%, transparent);
+  }
+
+  &.hazardous {
+    border-color: var(--mat-sys-error) !important;
+
+    mat-icon[mat-card-avatar] {
+      color: var(--mat-sys-error);
+    }
+  }
+
+  mat-icon[mat-card-avatar] {
+    color: var(--mat-sys-primary);
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.asteroid-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: var(--mat-sys-primary);
+    flex-shrink: 0;
+  }
+
+  .label {
+    font: var(--mat-sys-body-small);
+    color: var(--mat-sys-on-surface-variant);
+    flex: 1;
+  }
+
+  .value {
+    font: var(--mat-sys-body-medium);
+    font-weight: 600;
+    color: var(--mat-sys-on-surface);
+    text-align: right;
+  }
+}
+
+.hazard-chip {
+  background-color: color-mix(in srgb, var(--mat-sys-error) 15%, transparent) !important;
+  color: var(--mat-sys-error) !important;
+}
+
+.safe-chip {
+  color: var(--mat-sys-primary) !important;
+}

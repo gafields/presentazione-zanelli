@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
 import { httpResource } from '@angular/common/http';
 import { API_KEY } from '../../constants';
+import { Asteroide } from './asteroide/asteroide';
 
 export type CloseApproachData = {
   close_approach_date: string;
@@ -33,13 +31,7 @@ export type NeoWsResponse = {
 
 @Component({
   selector: 'app-neows-page',
-  imports: [
-    MatCardModule,
-    MatIconModule,
-    MatChipsModule,
-    MatProgressSpinnerModule,
-    MatButtonModule,
-  ],
+  imports: [MatIconModule, MatProgressSpinnerModule, Asteroide],
   templateUrl: './neows-page.html',
   styleUrl: './neows-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -63,21 +55,4 @@ export class NeowsPage {
   public hazardousCount = computed(
     () => this.asteroids().filter((a) => a.is_potentially_hazardous_asteroid).length,
   );
-
-  public formatDistance(km: string): string {
-    return parseFloat(km).toLocaleString('it-IT', { maximumFractionDigits: 0 });
-  }
-
-  public formatVelocity(kmh: string): string {
-    return parseFloat(kmh).toLocaleString('it-IT', { maximumFractionDigits: 0 });
-  }
-
-  public formatDiameter(min: number, max: number): string {
-    const avg = ((min + max) / 2) * 1000;
-    return avg.toLocaleString('it-IT', { maximumFractionDigits: 0 });
-  }
-
-  public formatLunar(lunar: string): string {
-    return parseFloat(lunar).toFixed(1);
-  }
 }
