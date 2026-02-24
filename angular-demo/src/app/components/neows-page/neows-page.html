@@ -1,0 +1,105 @@
+<div class="neows-container">
+  <div class="page-header">
+    <h2>Near Earth Objects</h2>
+    <p class="page-description">
+      Tracking asteroids and comets that pass close to Earth today, provided by NASA's Near Earth
+      Object Web Service (NeoWs).
+    </p>
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="48" />
+      <p>Loading asteroid data...</p>
+    </div>
+  }
+
+  @if (!isLoading() && asteroids().length > 0) {
+    <div class="stats-bar">
+      <div class="stat">
+        <mat-icon>blur_on</mat-icon>
+        <span class="stat-value">{{ asteroids().length }}</span>
+        <span class="stat-label">Asteroids today</span>
+      </div>
+      <div class="stat">
+        <mat-icon class="hazard-icon">warning</mat-icon>
+        <span class="stat-value">{{ hazardousCount() }}</span>
+        <span class="stat-label">Potentially hazardous</span>
+      </div>
+    </div>
+
+    <div class="asteroid-grid">
+      @for (asteroid of asteroids(); track asteroid.id) {
+        @let approach = asteroid.close_approach_data[0];
+        <mat-card
+          appearance="outlined"
+          class="asteroid-card"
+          [class.hazardous]="asteroid.is_potentially_hazardous_asteroid"
+        >
+          <mat-card-header>
+            <mat-icon mat-card-avatar>{{
+              asteroid.is_potentially_hazardous_asteroid ? 'warning' : 'blur_on'
+            }}</mat-icon>
+            <mat-card-title>{{ asteroid.name }}</mat-card-title>
+            <mat-card-subtitle>{{ approach.close_approach_date }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="asteroid-stats">
+              <div class="stat-row">
+                <mat-icon>straighten</mat-icon>
+                <span class="label">Diametro stimato</span>
+                <span class="value">
+                  ~{{
+                    formatDiameter(
+                      asteroid.estimated_diameter.kilometers.estimated_diameter_min,
+                      asteroid.estimated_diameter.kilometers.estimated_diameter_max
+                    )
+                  }}
+                  m
+                </span>
+              </div>
+              <div class="stat-row">
+                <mat-icon>speed</mat-icon>
+                <span class="label">Velocità</span>
+                <span class="value"
+                  >{{ formatVelocity(approach.relative_velocity.kilometers_per_hour) }} km/h</span
+                >
+              </div>
+              <div class="stat-row">
+                <mat-icon>place</mat-icon>
+                <span class="label">Distanza dalla Terra</span>
+                <span class="value"
+                  >{{ formatDistance(approach.miss_distance.kilometers) }} km</span
+                >
+              </div>
+              <div class="stat-row">
+                <mat-icon>brightness_5</mat-icon>
+                <span class="label">Distanza lunare</span>
+                <span class="value">{{ formatLunar(approach.miss_distance.lunar) }} LD</span>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            @if (asteroid.is_potentially_hazardous_asteroid) {
+              <mat-chip class="hazard-chip" highlighted color="warn">
+                <mat-icon matChipTrailingIcon>priority_high</mat-icon>
+                Potenzialmente pericoloso
+              </mat-chip>
+            } @else {
+              <mat-chip class="safe-chip">
+                <mat-icon matChipTrailingIcon>check_circle</mat-icon>
+                Non pericoloso
+              </mat-chip>
+            }
+            <a mat-button [href]="asteroid.nasa_jpl_url" target="_blank">
+              <mat-icon>open_in_new</mat-icon>
+              NASA JPL
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  }
+</div>
