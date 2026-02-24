@@ -24,10 +24,6 @@ export const routes: Routes = [
         component: ApodPage,
       },
       {
-        path: 'rover',
-        component: RoverPage,
-      },
-      {
         path: 'neows',
         component: NeowsPage,
       },
