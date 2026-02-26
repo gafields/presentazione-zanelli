@@ -12,6 +12,7 @@ test("deve sommare correttamente due numeri negativi", () => {
   assert.strictEqual(risultato, -5);
 });
 
+// Estendi implementazione della funzione somma per gestire anche stringhe che rappresentano numeri
 test.skip("deve restituire NaN se uno dei parametri non è un numero", () => {
   const risultato1 = somma("a", 3);
   const risultato2 = somma(2, "b");
