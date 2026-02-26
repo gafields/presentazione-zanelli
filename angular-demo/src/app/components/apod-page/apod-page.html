@@ -5,22 +5,7 @@
     title="Astronomy Picture of the Day"
     description="Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer."
   />
-  <app-date-navigator />
-
-  <div>
-    <button mat-button (click)="previousDay()">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <input
-      type="date"
-      [ngModel]="dateModel"
-      (ngModelChange)="onDateChanged($event)"
-      [max]="today"
-    />
-    <button mat-button [disabled]="nextDisabled()" (click)="nextDay()">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div>
+  <app-date-navigator [(date)]="date" />
 
   @if (isLoading()) {
     <mat-card appearance="outlined" class="apod-card">
