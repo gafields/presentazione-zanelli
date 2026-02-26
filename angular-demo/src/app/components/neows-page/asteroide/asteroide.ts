@@ -19,6 +19,8 @@ export class AsteroidInfo {
   // Questo approccio si chiama mapping, e serve a trasformare i dati così come arrivano dall'API in un formato più comodo da usare nella view.
   // In questo modo, la logica di formattazione è tutta in un posto, e la view può essere più semplice.
 
+  // Nota: Angular utilizza primitive reattive chiamate signals, e il mapping è implementato come una signal computata. In questo modo, ogni volta che i dati dell'asteroide cambiano, il mapping viene ricalcolato automaticamente, e la view si aggiorna di conseguenza.
+
   // Decommnta e utilizza questo oggetto per mappare i dati dell'asteroide in un formato più comodo per la view
   // Mostra le distanze in km e in miglia, il diametro medio in km e in miglia, la data di avvicinamento, la velocità in km/h e in mph, e se è potenzialmente pericoloso o no.
 
@@ -43,6 +45,11 @@ export class AsteroidInfo {
   //     lunar: this.formatLunar(asteroid.close_approach_data[0].miss_distance.lunar),
   //   };
   // });
+
+  // Questi metodi servono a formattare i dati in modo più leggibile. Ad esempio, la distanza in km viene formattata con le migliaia di separazione, e il diametro viene calcolato come media tra il minimo e il massimo.
+  // Tuttavia non devono essere usati direttamente nella view, ma solo all'interno del mapping, in modo da mantenere la view più pulita possibile.
+  // Rendi questi metodi privati, in modo da indicare che non devono essere usati al di fuori della classe.
+  // E utilizza al loro posto il computed signal per mostrare i dati formattati nella view.
 
   public formatDistance(km: string): string {
     return parseFloat(km).toLocaleString('it-IT', { maximumFractionDigits: 0 });
