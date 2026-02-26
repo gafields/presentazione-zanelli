@@ -7,14 +7,25 @@
   />
 
   <div>
-    <input type="date" [(ngModel)]="date" (ngModelChange)="onDateChanged($event)" />
+    <button mat-button (click)="previousDay()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <input
+      type="date"
+      [ngModel]="dateModel"
+      (ngModelChange)="onDateChanged($event)"
+      [max]="today"
+    />
+    <button mat-button [disabled]="nextDisabled()" (click)="nextDay()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
   </div>
 
   @if (isLoading()) {
     <mat-card appearance="outlined" class="apod-card">
       <div class="apod-image-placeholder">
-        <mat-icon>image</mat-icon>
-        <p>APOD image will appear here</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        <p>New image approaching...</p>
       </div>
       <mat-card-header>
         <mat-card-title>Loading...</mat-card-title>
@@ -29,6 +40,10 @@
   }
   @if (data$ && !isLoading()) {
     <mat-card appearance="outlined" class="apod-card">
+      <a class="expand-button" matButton="text" (click)="expand(data$.url)">
+        <mat-icon>zoom_in</mat-icon>
+        View Full Image
+      </a>
       <img [src]="data$.url" alt="Astronomy Picture of the Day" class="apod-image" />
       <mat-card-header>
         <mat-card-title>{{ data$.title }}</mat-card-title>

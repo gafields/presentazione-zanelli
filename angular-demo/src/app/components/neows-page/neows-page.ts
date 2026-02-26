@@ -5,25 +5,7 @@ import { httpResource } from '@angular/common/http';
 import { API_KEY } from '../../constants';
 import { AsteroidInfo } from './asteroide/asteroide';
 import { PageHeader } from '../page-header/page-header';
-
-export type CloseApproachData = {
-  close_approach_date: string;
-  relative_velocity: { kilometers_per_hour: string };
-  miss_distance: { kilometers: string; lunar: string };
-  orbiting_body: string;
-};
-
-export type NeoObject = {
-  id: string;
-  name: string;
-  nasa_jpl_url: string;
-  absolute_magnitude_h: number;
-  estimated_diameter: {
-    kilometers: { estimated_diameter_min: number; estimated_diameter_max: number };
-  };
-  is_potentially_hazardous_asteroid: boolean;
-  close_approach_data: CloseApproachData[];
-};
+import { NeoObject } from '../../types/neo-object.model';
 
 export type NeoWsResponse = {
   element_count: number;

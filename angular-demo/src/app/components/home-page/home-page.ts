@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-home-page',
@@ -21,10 +22,10 @@ import { MatCardModule } from '@angular/material/card';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {
-  public theme = signal('light');
+  protected readonly themeService = inject(ThemeService);
+  public readonly currentTheme = this.themeService.currentTheme;
 
   toggleTheme() {
-    this.theme.set(this.theme() === 'light' ? 'dark' : 'light');
-    document.body.classList.toggle('dark-mode', this.theme() === 'dark');
+    this.themeService.toggleTheme();
   }
 }

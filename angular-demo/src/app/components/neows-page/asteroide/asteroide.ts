@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
-import { NeoObject } from '../neows-page';
+import { NeoObject } from '../../../types/neo-object.model';
 
 @Component({
   selector: 'app-asteroid-info',
@@ -14,6 +14,26 @@ import { NeoObject } from '../neows-page';
 })
 export class AsteroidInfo {
   public asteroid = input.required<NeoObject>();
+
+  // Questo approccio si chiama mapping, e serve a trasformare i dati così come arrivano dall'API in un formato più comodo da usare nella view.
+  // In questo modo, la logica di formattazione è tutta in un posto, e la view può essere più semplice.
+  // public asteroidMapped = computed(() => {
+  //   const asteroid = this.asteroid();
+  //   return {
+  //     name: asteroid.name,
+  //     hazardous: asteroid.is_potentially_hazardous_asteroid,
+  //     approachDate: asteroid.close_approach_data[0].close_approach_date,
+  //     diameter: this.formatDiameter(
+  //       asteroid.estimated_diameter.kilometers.estimated_diameter_min,
+  //       asteroid.estimated_diameter.kilometers.estimated_diameter_max,
+  //     ),
+  //     distance: this.formatDistance(asteroid.close_approach_data[0].miss_distance.kilometers),
+  //     velocity: this.formatVelocity(
+  //       asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour,
+  //     ),
+  //     lunar: this.formatLunar(asteroid.close_approach_data[0].miss_distance.lunar),
+  //   };
+  // });
 
   public formatDistance(km: string): string {
     return parseFloat(km).toLocaleString('it-IT', { maximumFractionDigits: 0 });

@@ -21,7 +21,7 @@
       Asteroids
     </a>
     <button mat-button (click)="toggleTheme()">
-      @if (theme() == 'dark') {
+      @if (currentTheme() == 'dark') {
         <mat-icon>light_mode</mat-icon>
       } @else {
         <mat-icon>dark_mode</mat-icon>
