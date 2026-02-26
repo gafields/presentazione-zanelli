@@ -24,12 +24,7 @@
         <span class="stat-label">Potentially hazardous</span>
       </div>
       <div class="stat stat--input">
-        <input
-          type="date"
-          [ngModel]="date$()"
-          (ngModelChange)="onDateChanged($event)"
-          [max]="today"
-        />
+        <app-date-navigator [(date)]="date" />
       </div>
     </div>
 
