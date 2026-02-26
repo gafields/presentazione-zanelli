@@ -28,6 +28,10 @@
     align-items: center;
     gap: 10px;
 
+    &--input {
+      margin-left: auto;
+    }
+
     mat-icon {
       color: var(--mat-sys-primary);
 

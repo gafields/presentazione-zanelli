@@ -23,6 +23,14 @@
         <span class="stat-value">{{ hazardousCount() }}</span>
         <span class="stat-label">Potentially hazardous</span>
       </div>
+      <div class="stat stat--input">
+        <input
+          type="date"
+          [ngModel]="date$()"
+          (ngModelChange)="onDateChanged($event)"
+          [max]="today"
+        />
+      </div>
     </div>
 
     <div class="asteroid-grid">

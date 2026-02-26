@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { httpResource } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { API_KEY } from '../../constants';
 import { AsteroidInfo } from './asteroide/asteroide';
 import { PageHeader } from '../page-header/page-header';
 import { NeoObject } from '../../types/neo-object.model';
+import { FormsModule } from '@angular/forms';
 
 export type NeoWsResponse = {
   element_count: number;
@@ -14,17 +15,18 @@ export type NeoWsResponse = {
 
 @Component({
   selector: 'app-neows-page',
-  imports: [MatIconModule, MatProgressSpinnerModule, AsteroidInfo, PageHeader],
+  imports: [MatIconModule, MatProgressSpinnerModule, AsteroidInfo, PageHeader, FormsModule],
   templateUrl: './neows-page.html',
   styleUrl: './neows-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NeowsPage {
-  private readonly today = new Date().toISOString().split('T')[0];
+  public readonly today = new Date().toISOString().split('T')[0];
+  public date$ = signal(this.today);
 
   public request = httpResource<NeoWsResponse>(
     () =>
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.today}&end_date=${this.today}&api_key=${API_KEY}`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.date$()}&end_date=${this.date$()}&api_key=${API_KEY}`,
   );
 
   public isLoading = this.request.isLoading;
@@ -38,4 +40,8 @@ export class NeowsPage {
   public hazardousCount = computed(
     () => this.asteroids().filter((a) => a.is_potentially_hazardous_asteroid).length,
   );
+
+  public onDateChanged(newDate: string) {
+    this.date$.set(newDate);
+  }
 }
