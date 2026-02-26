@@ -9,6 +9,7 @@ description: >
   - informazioni sui parametri, endpoint, o risposta di qualunque API NASA
   Trigger anche con frasi come "mostrami le API NASA", "come funziona APOD",
   "struttura JSON di NeoWs", "cosa restituisce Mars Rover", ecc.
+  Se ti chiedo struttura JSON per nasa api, chiedi all'utente di quale API specifica (scelta multipla) e mostra esempio completo.
 ---
 
 # NASA Open APIs — Guida Completa
