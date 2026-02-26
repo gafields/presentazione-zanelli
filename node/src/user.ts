@@ -21,5 +21,3 @@ export function getUsers(): User[] {
     },
   ];
 }
-
-// change structure for name

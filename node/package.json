@@ -3,12 +3,13 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "check-types": "tsc --noEmit",
     "build": "tsc",
-    "start-ts": "tsx src/index.ts",
-    "start-ts2": "tsx src/index2.ts",
+    "start-ts": "npm run check-types && tsx src/index.ts",
+    "start-ts2": "npm run check-types && tsx src/index2.ts",
     "start-js": "node js/index.js",
     "start-js2": "node js/index2.js",
-    "dev": "tsx --watch src/index.ts",
+    "dev": "tsx --watch src/index.ts src/index2.ts",
     "test-ts": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "test-js": "node --test js/math.test.js"
   },
