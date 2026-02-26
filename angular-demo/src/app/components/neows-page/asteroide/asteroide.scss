@@ -1,10 +1,9 @@
+// Permette di definire stili specifici per le carte degli asteroidi, evidenziando quelli pericolosi con un bordo rosso e un'icona rossa, mentre quelli sicuri mantengono uno stile più neutro. Inoltre, fornisce stili per le statistiche degli asteroidi e per i chip che indicano se sono pericolosi o sicuri.
+// https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/light-dark
+// background: light-dark(red, green);
+
 .asteroid-card {
   transition: box-shadow 0.2s ease;
-
-  // mat-card-subtitle {
-  //   font: var(--mat-sys-body-small);
-  //   color: lime;
-  // }
 
   &:hover {
     box-shadow: 0 4px 16px color-mix(in srgb, var(--mat-sys-primary) 20%, transparent);
