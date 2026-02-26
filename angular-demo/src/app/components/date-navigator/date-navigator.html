@@ -1,7 +1,7 @@
-<button mat-button (click)="previousDay()">
+<button matIconButton="text" (click)="previousDay()">
   <mat-icon>chevron_left</mat-icon>
 </button>
 <input #dateInput type="date" [value]="date()" (input)="date.set(dateInput.value)" [max]="today" />
-<button mat-button [disabled]="nextDisabled()" (click)="nextDay()">
+<button matIconButton="text" [disabled]="nextDisabled()" (click)="nextDay()">
   <mat-icon>chevron_right</mat-icon>
 </button>
