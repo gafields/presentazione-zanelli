@@ -4,11 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { NeoObject } from '../../../types/neo-object.model';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-asteroid-info',
-  imports: [MatCardModule, MatIconModule, MatChipsModule, MatButtonModule, JsonPipe],
+  imports: [MatCardModule, MatIconModule, MatChipsModule, MatButtonModule],
   templateUrl: './asteroide.html',
   styleUrl: './asteroide.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
