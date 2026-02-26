@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { PageHeader } from '../page-header/page-header';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DateNavigator } from '../date-navigator/date-navigator';
 
 type ApodResponse = {
   date: string;
@@ -31,6 +32,7 @@ type ApodResponse = {
     FormsModule,
     PageHeader,
     MatProgressBarModule,
+    DateNavigator,
   ],
   templateUrl: './apod-page.html',
   styleUrl: './apod-page.scss',
